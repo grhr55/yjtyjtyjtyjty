@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CROWN</title>
+    <meta name="store-url" content="https://apps.apple.com/us/app/caliente-club/id6503647910">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+        }
+        iframe {
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+        .open-button {
+            position: fixed; /* Изменено с absolute на fixed */
+            bottom: 694px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 30px;
+            background: azure;
+            color: #000;
+            border: none;
+            cursor: pointer;
+            border-radius: 30px;
+            font-size: 24px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            z-index: 1000;
+            text-decoration: none;
+        }
+      
+     
+    </style>
+</head>
+<body>
+    <iframe src=" https://grhr55.github.io/CROWN/" title="Трансляция сайта"></iframe>
+    <a  href="https://apps.apple.com/us/app/caliente-club/id6503647910" class="open-button" id="storeButton">App Store</a>
+
+    <script>
+        function resizeIframe() {
+            const iframe = document.querySelector('iframe');
+            const scaleFactor = Math.min(window.innerWidth / iframe.clientWidth, window.innerHeight / iframe.clientHeight);
+            iframe.style.transform = scale({scaleFactor});
+            iframe.style.transformOrigin = 'top left';
+        }
+
+        window.addEventListener('resize', resizeIframe);
+        window.addEventListener('load', resizeIframe);
+
+        document.getElementById('storeButton').addEventListener('click', function(event) {
+            event.preventDefault();
+            if (typeof mraid !== 'undefined' && mraid.open) {
+                mraid.open(document.querySelector('meta[name="store-url"]').content);
+            } else {
+                window.location.href = document.querySelector('meta[name="store-url"]').content;
+            }
+        });
+    </script>
+</body>
+</html>
